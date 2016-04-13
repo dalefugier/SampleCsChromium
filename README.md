@@ -1,6 +1,5 @@
 # SampleCsChromium
 ================
-
 Sample C# RhinoCommon plug-in that demonstrates how to embed Chrome into a docking panel.
 
 The project uses CefSharp.WinForms from the NuGet repository.
