@@ -1,5 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\CefSharp.WinForms.47.0.3\build\CefSharp.WinForms.props" Condition="Exists('..\packages\CefSharp.WinForms.47.0.3\build\CefSharp.WinForms.props')" />
+  <Import Project="..\packages\CefSharp.Common.47.0.3\build\CefSharp.Common.props" Condition="Exists('..\packages\CefSharp.Common.47.0.3\build\CefSharp.Common.props')" />
   <Import Project="packages\CefSharp.WinForms.47.0.3\build\CefSharp.WinForms.props" Condition="Exists('packages\CefSharp.WinForms.47.0.3\build\CefSharp.WinForms.props')" />
   <Import Project="packages\CefSharp.Common.47.0.3\build\CefSharp.Common.props" Condition="Exists('packages\CefSharp.Common.47.0.3\build\CefSharp.Common.props')" />
   <PropertyGroup>
@@ -15,6 +17,8 @@
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>false</IsWebBootstrapper>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
     <DebugSymbols>true</DebugSymbols>
@@ -87,11 +91,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config">
-      <SubType>Designer</SubType>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -101,6 +100,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
     <None Include="SampleCsChromium.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
@@ -128,7 +128,15 @@ Erase "$(TargetPath)"</PostBuildEvent>
     <Error Condition="!Exists('packages\CefSharp.Common.47.0.3\build\CefSharp.Common.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\CefSharp.Common.47.0.3\build\CefSharp.Common.props'))" />
     <Error Condition="!Exists('packages\CefSharp.Common.47.0.3\build\CefSharp.Common.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\CefSharp.Common.47.0.3\build\CefSharp.Common.targets'))" />
     <Error Condition="!Exists('packages\CefSharp.WinForms.47.0.3\build\CefSharp.WinForms.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\CefSharp.WinForms.47.0.3\build\CefSharp.WinForms.props'))" />
+    <Error Condition="!Exists('..\packages\cef.redist.x64.3.2526.1362\build\cef.redist.x64.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\cef.redist.x64.3.2526.1362\build\cef.redist.x64.targets'))" />
+    <Error Condition="!Exists('..\packages\cef.redist.x86.3.2526.1362\build\cef.redist.x86.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\cef.redist.x86.3.2526.1362\build\cef.redist.x86.targets'))" />
+    <Error Condition="!Exists('..\packages\CefSharp.Common.47.0.3\build\CefSharp.Common.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\CefSharp.Common.47.0.3\build\CefSharp.Common.props'))" />
+    <Error Condition="!Exists('..\packages\CefSharp.Common.47.0.3\build\CefSharp.Common.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\CefSharp.Common.47.0.3\build\CefSharp.Common.targets'))" />
+    <Error Condition="!Exists('..\packages\CefSharp.WinForms.47.0.3\build\CefSharp.WinForms.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\CefSharp.WinForms.47.0.3\build\CefSharp.WinForms.props'))" />
   </Target>
   <Import Project="packages\cef.redist.x64.3.2526.1362\build\cef.redist.x64.targets" Condition="Exists('packages\cef.redist.x64.3.2526.1362\build\cef.redist.x64.targets')" />
   <Import Project="packages\CefSharp.Common.47.0.3\build\CefSharp.Common.targets" Condition="Exists('packages\CefSharp.Common.47.0.3\build\CefSharp.Common.targets')" />
+  <Import Project="..\packages\cef.redist.x64.3.2526.1362\build\cef.redist.x64.targets" Condition="Exists('..\packages\cef.redist.x64.3.2526.1362\build\cef.redist.x64.targets')" />
+  <Import Project="..\packages\cef.redist.x86.3.2526.1362\build\cef.redist.x86.targets" Condition="Exists('..\packages\cef.redist.x86.3.2526.1362\build\cef.redist.x86.targets')" />
+  <Import Project="..\packages\CefSharp.Common.47.0.3\build\CefSharp.Common.targets" Condition="Exists('..\packages\CefSharp.Common.47.0.3\build\CefSharp.Common.targets')" />
 </Project>
