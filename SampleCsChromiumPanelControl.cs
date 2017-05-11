@@ -2,6 +2,8 @@
 using System.Windows.Forms;
 using CefSharp;
 using CefSharp.WinForms;
+using System.Reflection;
+using System.IO;
 
 namespace SampleCsChromium
 {
@@ -32,7 +34,15 @@ namespace SampleCsChromium
     private void InitializeBrowser()
     {
       Cef.EnableHighDPISupport();
-      Cef.Initialize(new CefSettings());
+
+      string assemblyLocation = Assembly.GetExecutingAssembly().Location;
+      string assemblyPath = Path.GetDirectoryName(assemblyLocation);
+      string pathSubprocess = Path.Combine(assemblyPath, "CefSharp.BrowserSubprocess.exe");
+
+      var settings = new CefSettings();
+      settings.BrowserSubprocessPath = pathSubprocess;
+      Cef.Initialize(settings);
+
       m_browser = new ChromiumWebBrowser("http://www.rhino3d.com/");
       Controls.Add(m_browser);
       m_browser.Dock = DockStyle.Fill;
