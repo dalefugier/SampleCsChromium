@@ -1,3 +1,5 @@
 bin/
 packages/
 obj/
+.vs/
+*.user
